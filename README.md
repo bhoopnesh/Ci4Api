@@ -1,56 +1,43 @@
-# CodeIgniter 4 Framework
+# Rest API With CodeIgniter 4 Framework
 
-## What is CodeIgniter?
+## STEP 1
+Download the complete project and import database file in phpmyadmin
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+## STEP 2
+run this command in project root folder 
 
-This repository holds the distributable version of the framework,
-including the user guide. It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+composer require firebase/php-jwt
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+This command will install JWT into application. It will install jwt package into vendor folder at project root.
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+## STEP 3
+Start the server via 
+php spark serve
 
+## STEP 4
+Now test apis
 
-## Important Change with index.php
+REGISTER API POST Method
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+URL – http://localhost:8080/api/register
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Form Data -
+name:bhoopnesh
+email:bhoopnesh11@gmail.com
+phone_no:9691271037
+password:bhoopnesh@123
 
-**Please** read the user guide for a better explanation of how CI4 works!
+LOGIN API POST Method
 
-## Repository Management
+URL – http://localhost:8080/api/login
 
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Form Data -
+email:bhoopnesh11@gmail.com
+password:bhoopnesh@123
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+GET POST API GET Method
 
-## Contributing
+URL – http://localhost:8080/api/posts
 
-We welcome contributions from the community.
+SET Authorization header in with the help of login token data after that you get your posts.
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/contributing.md) section in the development repository.
-
-## Server Requirements
-
-PHP version 7.3 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
